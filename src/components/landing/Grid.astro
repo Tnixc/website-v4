@@ -4,7 +4,17 @@
 <style>
   div {
     background-size: 3cqw 3cqw;
-    background-image: linear-gradient(to right, #2B2C3F 1px, transparent 1px),
-      linear-gradient(to bottom, #2B2C3F 1px, transparent 1px);
+    background-image: linear-gradient(to right, #202020 1px, transparent 1px),
+      linear-gradient(to bottom, #202020 1px, transparent 1px);
+  }
+  div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
   }
 </style>
