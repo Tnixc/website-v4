@@ -21,8 +21,13 @@
   background: #38d2c0;
   color: black;
 }
+*:focus{
+  outline: 2px solid #38d2c0;
+  outline-offset: 2px;
+}
 body {
   filter: url(#bloom);
+  color: white;
 }
 body::after {
   content: "";
