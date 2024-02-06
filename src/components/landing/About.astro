@@ -14,29 +14,67 @@
           class="text-blue-500">_</span
         >
       </h2>
-      <h2 class="text-2xl pt-7 whitespace-normal">he/him ✦ EST(UTC-5) ✦ 15 ✦ 🇭🇰🇨🇦</h2>
-      <div class="text-zinc-300 max-w-[90vw] w-[500px]">
-        <br />
-        <p class="whitespace-normal">
-          I'm a 15 year old high school student from Hong Kong living in Canada.
-          I enjoy video games, coding, reading books and webcomics, watching
-          anime, listening to lots of jpop, lofi, vocaloids and all that, and
-          doing 2D and 3D art. I started webdev around 2022, but honestly time
-          has been blur since 2020 so I'm not sure. I also like trains and
-          bikes(a huge fan of dutch urban design), public transit, typography,
-          and open source. I also like chilling in IKEA and hiking :3
-        </p>
-        <br />
-        <p class="whitespace-normal">
-          I also enjoy games like minecraft and a lot of rhythm games like osu!,
-          pjsk, and beat saber. I also like BG3, City Skylines 2, Cyberpunk,
-          poly bridge, ultrakill, besiege, and celeste.
-        </p>
+      <h2 class="text-2xl pt-7 whitespace-normal">
+        he/him ✦ EST(UTC-5) ✦ 15 ✦ 🇭🇰🇨🇦
+      </h2>
+      <div class="p-5">
+        <button id="open" class="p-3 bg-zinc-900 border-2 hover:scale-95 transition-all"
+          >⍈ More About Me :3</button
+        >
       </div>
     </div>
+    <dialog id="more" class="lg:p-10 p-2 rounded-xl bg-zinc-800 text-zinc-300 w-[60rem] max-w-[90vw]">
+      <form method="dialog">
+        <h1 class="text-2xl pb-10 text-zinc-500">More about me</h1>
+        <p>
+          1. Thanks for opening this dialog!
+          <br />
+          <br />
+          I'm a 15 year old high school student from Hong Kong living in Canada.
+          I enjoy video games, coding, reading books and webcomics, watching
+          anime, listening to lots of jpop, touhou songs, vocaloids and all
+          that, and doing 2D and 3D art. I started webdev around 2022, but
+          honestly time has been blur since 2020 so I'm not sure. I also like
+          trains and bikes(a huge fan of dutch urban design), public transit,
+          typography, and open source. I also like chilling in IKEA and hiking
+          :3
+          <br />
+          <br />
+
+          I also enjoy games like minecraft and a lot of rhythm games like osu!,
+          pjsk, and beat saber. I also like BG3, City Skylines 2, Cyberpunk, poly
+          bridge, ultrakill, besiege, and celeste.
+          <br />
+          <br />
+        </p>
+        <div class="flex gap-2 items-center max-w-full overflow-hidden">
+        <button id="close" class="p-2 border-2 hover:scale-95 transition-all">✖ Close dialog</button>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+        <span>←</span>
+      </div>
+      </form>
+    </dialog>
   </div>
 </section>
 <script>
+  //@ts-nocheck
+  document.getElementById("open").addEventListener("click", () => {
+    document.getElementById("more").showModal();
+  });
+  document.getElementById("close").addEventListener("close", () => {
+    document.getElementById("more").close();
+  });
   const texts: string[] = [
     "webdev",
     "anime enjoyer",
@@ -114,6 +152,10 @@
   }, 100);
 </script>
 <style>
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+  }
   #mid-left {
     transform: perspective(1000px) rotateY(-4deg) rotateX(0deg)
       translateX(-20px);
