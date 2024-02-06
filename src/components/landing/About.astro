@@ -6,7 +6,7 @@ import Stats from "./Stats.astro";
   <div class="lg:p-20 p-4 relative z-40">
     <div class="h-[20vh]"></div>
     <div class="max-w-[90vw] w-fit" id="mid-left">
-      <h2 class="text-4xl border border-zinc-800 w-min">Haiii</h2>
+      <h2 id="title" class="text-4xl border border-zinc-800 w-min">Haiii</h2>
       <h1 class="text-5xl">
         I'm <span
           class="text-transparent bg-clip-text bg-gradient-to-b from-teal-300 via-teal-300 to-slate-200"
@@ -193,5 +193,9 @@ import Stats from "./Stats.astro";
   }
   #underscore {
     text-shadow: 0 0 5px #3c6ac4;
+  }
+
+  #title {
+    transform: perspective(1000px) rotateY(-6deg) rotateX(20deg);
   }
 </style>
