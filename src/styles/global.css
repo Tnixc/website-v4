@@ -31,7 +31,7 @@
   outline-offset: 2px;
 }
 body {
-  filter: url(#bloom);
+  filter: brightness(0.9) url(#bloom);
   color: white;
 }
 body::after {
