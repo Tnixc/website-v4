@@ -3,13 +3,36 @@
     <div class="flex flex-col text-3xl" id="top-left">
       <a href="https://github.com/Tnixc" target="_blank">🡔GitHub</a>
       <a href="https://twitter.com/_Tnixc" target="_blank">🡔X/Twitter</a>
-      <button class="inline">▤Discord: @Tnixc</button>
+      <button class="inline" onclick="handleClick()">▤Discord: @Tnixc</button>
+      <span class="unseen bg-lime-300 text-black w-min">Copied</span>
     </div>
   </div>
 </section>
+<script lang="ts">
+  function handleClick() {
+    const span = document.querySelector("#top-left span");
+    span.classList.remove("unseen");
+    span.classList.add("seen");
+    setTimeout(() => {
+      span.classList.remove("seen");
+      span.classList.add("unseen");
+    }, 2000);
+  }
+</script>
 <style>
+  span{
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .unseen {
+    opacity: 0;
+    transform: translateY(0rem);
+  }
+  .seen {
+    opacity: 1;
+    transform: translateY(0.4rem);
+  }
   #top-left {
-    transform: perspective(1000px) rotateY(-24deg) rotateX(24deg);
+    transform: perspective(1000px) rotateY(-20deg) rotateX(20deg);
     a,
     button {
       position: relative;
