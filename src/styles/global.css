@@ -4,13 +4,13 @@
 
 @font-face {
   font-family: "Zed Sans";
-  src: url(../Fonts/zed-sans-extended.ttf) format("truetype");
+  src: url(../../Fonts/zed-sans-extended.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Zed Sans";
-  src: url(../Fonts/zed-sans-extendedbold.ttf) format("truetype");
+  src: url(../../Fonts/zed-sans-extendedbold.ttf) format("truetype");
   font-weight: 700;
   font-style: normal;
 }
@@ -37,7 +37,10 @@ body {
 body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  height: 100lvh;
+  width: 100vw;
   background: radial-gradient(circle at center, transparent 60%, black 110%);
   z-index: 999;
   pointer-events: none;

@@ -8,12 +8,7 @@ import Footer from "@/components/global/Footer.astro";
   <head>
     <BaseHead />
   </head>
-  <body class="bg-black h-screen w-screen">
-    <div class="fixed inset-0 fisheye rounded-[3rem] overflow-scroll">
-      <Navigation />
-      <slot />
-      <Footer />
-    </div>
+  <body class="bg-black w-screen fisheye">
     <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
       <filter id="bloom">
         <feGaussianBlur in="SourceGraphic" stdDeviation="5"></feGaussianBlur>
@@ -21,5 +16,8 @@ import Footer from "@/components/global/Footer.astro";
         ></feComposite>
       </filter>
     </svg>
+      <Navigation />
+      <slot />
+      <Footer />
   </body>
 </html>
