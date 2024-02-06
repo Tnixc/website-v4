@@ -68,11 +68,12 @@
   </div>
 </section>
 <script>
-  //@ts-nocheck
   document.getElementById("open").addEventListener("click", () => {
+    //@ts-expect-error 
     document.getElementById("more").showModal();
   });
   document.getElementById("close").addEventListener("close", () => {
+    //@ts-expect-error
     document.getElementById("more").close();
   });
   const texts: string[] = [
