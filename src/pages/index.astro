@@ -1,14 +1,14 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Main from "@/components/landing/Main.astro";
-import Grid from "@/components/landing/Grid.astro";
 import About from "@/components/landing/About.astro";
+import Badges from "@/components/landing/Badges.astro";
 ---
 
 <BaseLayout>
-  <Main />
-  
+  <div class="flex">
+    <Main />
     <About />
-  
-  <Grid />
+    <Badges />
+  </div>
 </BaseLayout>

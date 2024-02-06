@@ -1,21 +1,35 @@
 <section>
-  <div class="flex flex-col h-screen justify-between lg:p-20 p-4">
-    <div></div>
-  <div class="w-fit" id="mid-left">
-    <h2 class="text-4xl">Haiii</h2>
-    <h1 class="text-5xl">I'm Tnixc</h1>
-    <h2 class="w-[50ch] max-w-screen overflow-auto text-3xl">
-      Just a 15y/o <span id="text-rpd-text"></span><span
-        id="underscore"
-        class="text-blue-500">_</span>
-    </h2>
-    <h2 class="text-2xl pt-7">he/him ✦ EST(UTC-5) ✦ 15 ✦ 🇭🇰🇨🇦</h2>
+  <div class="w-fit flex flex-col h-screen justify-center lg:p-20 p-4 relative z-40">
+    <div class="w-fit" id="mid-left">
+      <h2 class="text-4xl">Haiii</h2>
+      <h1 class="text-5xl">I'm Tnixc</h1>
+      <h2 class="max-w-screen overflow-auto text-3xl">
+        Just a 15y/o <span id="text-rpd-text"></span><span
+          id="underscore"
+          class="text-blue-500">_</span
+        >
+      </h2>
+      <h2 class="text-2xl pt-7 ">he/him ✦ EST(UTC-5) ✦ 15 ✦ 🇭🇰🇨🇦</h2>
+      <div class=" text-zinc-300 w-[60ch]">
+        <br>
+        <p>
+          I'm a 15 year old high school student from Hong Kong living in Canada. I
+          enjoy video games, coding, reading books and webcomics, watching anime,
+          listening to lots of jpop, lofi, vocaloids and all that, and doing 2D
+          and 3D art. I started webdev around 2022, but honestly time has been
+          blur since 2020 so I'm not sure. I also like trains and bikes(a huge fan
+          of dutch urban design), public transit, typography, and open source. I
+          also like chilling in IKEA and hiking :3
+        </p>
+        <br>
+        <p>
+          I also enjoy games like minecraft and a lot of rhythm games like osu!,
+          pjsk, and beat saber. I also like BG3, City Skylines 2, Cyberpunk, poly
+          bridge, ultrakill, besiege, and celeste.
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="max-w-[50ch] text-neutral-200" id="low-left">
-    <p>I'm a 15 year old high school student from Hong Kong living in Canada. I enjoy video games, coding, reading books and webcomics, watching anime, listening to lots of jpop, touhou songs, vocaloids and all that, and doing 2D and 3D art. I started webdev around 2022, but honestly time has been blur since 2020 so I'm not sure. I also like trains and bikes(a huge fan of dutch urban design), public transit, typography, and open source. I also like chilling in IKEA and hiking :3</p>
-    <p>I also enjoy games like minecraft and a lot of rhythm games like osu!, pjsk, and beat saber. I also like BG3, City Skylines 2, Cyberpunk, poly bridge, ultrakill, besiege, and celeste.</p>
-  </div>
-</div>
 </section>
 <script>
   const texts: string[] = [
@@ -96,11 +110,6 @@
 </script>
 <style>
   #mid-left {
-    transform: perspective(1000px) rotateY(-14deg) rotateX(0deg)
-      translateX(-100px);
-  }
-  #low-left {
-    transform: perspective(1000px) rotateY(-0deg) rotateX(-4deg) translateX(-10px);
-    
+    transform: perspective(1000px) rotateY(-4deg) rotateX(0deg) translateX(-20px);
   }
 </style>
