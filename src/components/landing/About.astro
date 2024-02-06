@@ -1,6 +1,106 @@
 <section>
-  <div class="">
-    <h2>Haiii</h2>
-    <h1>I'm Tnixc</h1>
+  <div class="flex flex-col h-screen justify-between lg:p-20 p-4">
+    <div></div>
+  <div class="w-fit" id="mid-left">
+    <h2 class="text-4xl">Haiii</h2>
+    <h1 class="text-5xl">I'm Tnixc</h1>
+    <h2 class="w-[50ch] max-w-screen overflow-auto text-3xl">
+      Just a 15y/o <span id="text-rpd-text"></span><span
+        id="underscore"
+        class="text-blue-500">_</span>
+    </h2>
+    <h2 class="text-2xl pt-7">he/him ✦ EST(UTC-5) ✦ 15 ✦ 🇭🇰🇨🇦</h2>
   </div>
+  <div class="max-w-[50ch] text-neutral-200" id="low-left">
+    <p>I'm a 15 year old high school student from Hong Kong living in Canada. I enjoy video games, coding, reading books and webcomics, watching anime, listening to lots of jpop, touhou songs, vocaloids and all that, and doing 2D and 3D art. I started webdev around 2022, but honestly time has been blur since 2020 so I'm not sure. I also like trains and bikes(a huge fan of dutch urban design), public transit, typography, and open source. I also like chilling in IKEA and hiking :3</p>
+    <p>I also enjoy games like minecraft and a lot of rhythm games like osu!, pjsk, and beat saber. I also like BG3, City Skylines 2, Cyberpunk, poly bridge, ultrakill, besiege, and celeste.</p>
+  </div>
+</div>
 </section>
+<script>
+  const texts: string[] = [
+    "webdev",
+    "anime enjoyer",
+    "webnovel reader",
+    "aspiring 2D Artist",
+    "minecraft enjoyer",
+    "rhythm game player",
+    "aspiring 3D artist",
+    "highschool student",
+    "webtoon reader",
+  ];
+  let currentIndex = 0;
+  let typedText = "";
+  let showUnderscore = false;
+  const textElement = document.getElementById("text-rpd-text");
+
+  const typeAndCycleText = async () => {
+    while (true) {
+      await typeText(texts[currentIndex]);
+      await sleep(2000);
+      await backspace();
+      currentIndex = (currentIndex + 1) % texts.length;
+    }
+  };
+
+  const typeText = (text: string) => {
+    return new Promise<void>((resolve) => {
+      let charIndex = 0;
+      const delay = 100;
+
+      const typingInterval = setInterval(() => {
+        if (charIndex < text.length) {
+          typedText += text[charIndex];
+          charIndex++;
+        } else {
+          clearInterval(typingInterval);
+          resolve();
+        }
+      }, delay);
+    });
+  };
+
+  const backspace = () => {
+    return new Promise<void>((resolve) => {
+      const delay = 50;
+      const textToType = typedText;
+      let charIndex = textToType.length;
+
+      const backspaceInterval = setInterval(() => {
+        if (charIndex > 0) {
+          typedText = textToType.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          clearInterval(backspaceInterval);
+          resolve();
+        }
+      }, delay);
+    });
+  };
+
+  const sleep = (ms: number) => {
+    return new Promise<void>((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  };
+  typeAndCycleText();
+  setInterval(() => {
+    showUnderscore = !showUnderscore;
+    document.getElementById("underscore").style.visibility = showUnderscore
+      ? "visible"
+      : "hidden";
+  }, 500);
+  setInterval(() => {
+    textElement.innerText = typedText;
+  }, 100);
+</script>
+<style>
+  #mid-left {
+    transform: perspective(1000px) rotateY(-14deg) rotateX(0deg)
+      translateX(-100px);
+  }
+  #low-left {
+    transform: perspective(1000px) rotateY(-0deg) rotateX(-4deg) translateX(-10px);
+    
+  }
+</style>
