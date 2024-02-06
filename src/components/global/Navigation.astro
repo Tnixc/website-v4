@@ -1,13 +1,10 @@
 <section>
-  <div class="flex lg:p-12 fixed top-0 z-50">
+  <div class="flex lg:p-12 fixed top-0 p-4 z-[99]">
     <div class="flex flex-col text-3xl" id="top-left">
-      <a href="https://github.com/Tnixc" target="_blank">🡔GitHub</a>
-      <a href="https://twitter.com/_Tnixc" target="_blank">🡔X/Twitter</a>
-      <button class="inline" onclick="handleClick()">▤Discord: @Tnixc</button>
+      <a class="bg-black " href="https://github.com/Tnixc" target="_blank">🡔GitHub</a>
+      <a class="bg-black " href="https://twitter.com/_Tnixc" target="_blank">🡔X/Twitter</a>
+      <button class="bg-black inline" onclick="handleClick()">▤Discord: @Tnixc</button>
       <span class="unseen bg-lime-300 text-black w-min text-xl">✓Copied</span>
-    </div>
-    <div class="flex flex-col text-3xl" id="top-right">
-      
     </div>
   </div>
 </section>
@@ -23,7 +20,7 @@
   }
 </script>
 <style>
-  span{
+  span {
     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .unseen {
@@ -36,6 +33,7 @@
   }
   #top-left {
     transform: perspective(1000px) rotateY(-20deg) rotateX(20deg);
+    position: relative;
     a,
     button {
       position: relative;
