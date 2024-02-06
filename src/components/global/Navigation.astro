@@ -1,9 +1,24 @@
 <section>
-  <div class="flex lg:p-12 fixed top-0 p-4 z-[99]">
+  <div class="flex lg:p-12 fixed top-0 p-4 z-[99] w-full justify-between">
     <div class="flex flex-col text-2xl lg:text-3xl" id="top-left">
-      <div class="flex"><button class="bg-black inline " onclick="handleClick()">▤Discord: @Tnixc</button><span class="unseen bg-lime-300 text-black w-min text-xl h-min">✓Copied</span></div>
-      <a class="bg-black " href="https://twitter.com/_Tnixc" target="_blank">🡔X/Twitter</a>
-      <a class="bg-black" href="https://github.com/Tnixc" target="_blank">🡔GitHub</a>
+      <div class="flex">
+        <button class="bg-black inline" onclick="handleClick()"
+          >▤Discord: @Tnixc</button
+        ><span class="unseen bg-lime-300 text-black w-min text-xl h-min"
+          >✓Copied</span
+        >
+      </div>
+      <a class="bg-black" href="https://twitter.com/_Tnixc" target="_blank"
+        >🡔X/Twitter</a
+      >
+      <a class="bg-black" href="https://github.com/Tnixc" target="_blank"
+        >🡔GitHub</a
+      >
+    </div>
+    <div class="flex flex-col text-2xl lg:text-3xl" id="top-right">
+      <a class="bg-black" href="/blog/">Blog 🡕</a>
+      <br />
+      <a class="bg-black" href="/projects/">Projects ⟶</a>
     </div>
   </div>
 </section>
@@ -31,32 +46,42 @@
     opacity: 1;
     transform: translateY(0.4rem);
   }
+  #top-right {
+    transform: perspective(1000px) rotateY(20deg) rotateX(20deg);
+    position: relative;
+  }
   #top-left {
     transform: perspective(1000px) rotateY(-20deg) rotateX(20deg);
     position: relative;
-    a,
-    button {
-      position: relative;
-      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      width: fit-content;
-    }
-    a:hover,
-    button:hover {
-      transform: scale(1.1);
-    }
-    a::after,
-    button::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      width: 0%;
-      background: white;
-      mix-blend-mode: difference;
-      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    a:hover::after,
-    button:hover::after {
-      width: 100%;
-    }
+  }
+
+  #top-right a,
+  #top-left a,
+  #top-left button {
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: fit-content;
+  }
+  #top-right a:hover,
+  #top-left a:hover,
+  #top-left button:hover {
+    transform: scale(1.1);
+  }
+  #top-right a::after,
+  #top-left a::after,
+  #top-left button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 0%;
+    background: white;
+    mix-blend-mode: difference;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  #top-right a:hover::after,
+  #top-right button:hover::after,
+  #top-left a:hover::after,
+  #top-left button:hover::after {
+    width: 100%;
   }
 </style>
