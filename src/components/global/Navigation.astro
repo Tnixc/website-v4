@@ -1,17 +1,15 @@
 <section>
-  <div class="flex lg:p-12 fixed top-0 p-4 z-[99] w-full justify-between ">
+  <div class="flex lg:p-12 fixed top-0 p-4 z-[99] w-full justify-between">
     <div class="flex flex-col text-2xl lg:text-3xl" id="top-left">
       <div class="flex">
-        <button class="bg-black inline border"
-        id="email"
+        <button class="bg-black inline border" id="email"
           >▤tnixxc@gmail.com</button
         ><span class="unseen bg-lime-300 text-black w-min text-xl h-min email"
           >✓Copied</span
         >
       </div>
       <div class="flex">
-        <button class="bg-black inline border"
-        id="discord"
+        <button class="bg-black inline border" id="discord"
           >▤Discord: @Tnixc</button
         ><span class="unseen bg-lime-300 text-black w-min text-xl h-min discord"
           >✓Copied</span
@@ -34,7 +32,9 @@
   </div>
 </section>
 <script lang="ts">
-  document.querySelector("#discord").addEventListener("click", handleClickDiscord);
+  document
+    .querySelector("#discord")
+    .addEventListener("click", handleClickDiscord);
   document.querySelector("#email").addEventListener("click", handleClickEmail);
   function handleClickDiscord() {
     const span = document.querySelector("#top-left .discord");

@@ -26,7 +26,8 @@
   background: #38d2c0;
   color: black;
 }
-a:focus,button:focus {
+a:focus,
+button:focus {
   outline: 2px solid #38d2c0;
   outline-offset: 2px;
 }
@@ -50,9 +51,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: 998;
-  background-image: linear-gradient(
-  #00000022, #2A293C44
-  );
+  background-image: linear-gradient(#00000022, #2a293c44);
   pointer-events: none;
   background-repeat: repeat;
   background-size: 100vw 1vh;
