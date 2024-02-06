@@ -1,0 +1,51 @@
+<script>
+  // Replace 'octocat' with the actual username of the public GitHub user
+  const username = 'Tnixc';
+
+  async function getRepoLanguages(repoUrl) {
+    try {
+      const response = await fetch(repoUrl);
+      return await response.json();
+    } catch (error) {
+      console.error(`Error fetching languages for ${repoUrl}`, error);
+      return {};
+    }
+  }
+
+  async function processUserRepositories() {
+    const url = `https://api.github.com/users/${username}/repos`;
+    const response = await fetch(url);
+    const repos = await response.json();
+
+    const languages = {};
+
+    for (const repo of repos) {
+      const languageUrl = repo.languages_url;
+      if (languageUrl) {
+        const repoLanguages = await getRepoLanguages(languageUrl);
+        for (const language in repoLanguages) {
+          languages[language] = (languages[language] || 0) + repoLanguages[language];
+        }
+      }
+    }
+
+    // Convert to language-count pairs and sort
+    const languageCounts = Object.entries(languages);
+    languageCounts.sort((a, b) => b[1] - a[1]);
+
+    // Calculate total bytes and extract top 5 languages
+    const totalBytes = languageCounts.reduce((acc, [language, count]) => acc + count, 0);
+    const top5Languages = languageCounts.slice(0, 5).map(([language, count]) => ({
+      language,
+      percentage: ((count / totalBytes) * 100).toFixed(2)
+    }));
+
+    // Console log the top 5 languages and percentages
+    console.log('Top 5 languages:');
+    for (const { language, percentage } of top5Languages) {
+      console.log(`${language}: ${percentage}%`);
+    }
+  }
+
+  processUserRepositories();
+</script>
