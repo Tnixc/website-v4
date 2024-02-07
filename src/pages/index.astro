@@ -1,15 +1,13 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Main from "@/components/landing/Main.astro";
 import About from "@/components/landing/About.astro";
 import Badges from "@/components/landing/Badges.astro";
 ---
 
 <BaseLayout>
   <div
-    class="flex flex-wrap items-center justify-center lg:justify-normal pt-20 lg:pt-0"
+    class="flex flex-wrap justify-between pt-20 lg:pt-0 lg:px-20 w-screen items-center"
   >
-    <Main />
     <About />
     <Badges />
   </div>
