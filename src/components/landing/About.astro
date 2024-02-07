@@ -61,11 +61,11 @@ import Stats from "./Stats.astro";
         <br />
         <br />
       </p>
-      <button
-        id="close"
-        class="p-2 border-2 hover:scale-95 transition-all text-red-400"
-        >✖ Close dialog</button
-      >
+        <button
+          id="close"
+          class="p-2 border-2 hover:scale-95 transition-all text-red-400"
+          >✖ Close dialog</button
+        >
     </form>
   </dialog>
 </section>
@@ -146,9 +146,11 @@ import Stats from "./Stats.astro";
   typeAndCycleText();
   setInterval(() => {
     showUnderscore = !showUnderscore;
-    document.getElementById("underscore").style.visibility = showUnderscore
+    if (document.getElementById("underscore")){
+      document.getElementById("underscore").style.visibility = showUnderscore
       ? "visible"
       : "hidden";
+    }
   }, 500);
   setInterval(() => {
     textElement.innerText = typedText;
