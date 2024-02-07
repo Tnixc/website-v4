@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div id="top-center">
+    <a class="bg-black border text-3xl" href="/">🡐 Back</a>
+  </div>
+  <div
+    class="flex flex-wrap justify-between pt-20 lg:pt-0 lg:px-20 w-screen items-center"
+  >
+  </div>
+</BaseLayout>
+<style>
+  #top-center{
+    position: fixed;
+    z-index: 99;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%) perspective(1000px) rotateX(30deg);
+  }
+  #top-center a{
+    padding: 1rem 2rem;
+    transition: all .2s;
+  }
+  #top-center:hover a{
+    opacity: .5;
+  }
+</style>
