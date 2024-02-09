@@ -43,7 +43,7 @@ body::before {
   content: "";
   position: fixed;
   z-index: 998;
-  background-image: linear-gradient(#ffffff06, #00000055);
+  background-image: linear-gradient(#ffffff01, #00000055);
   inset: 0;
   pointer-events: none;
   background-repeat: repeat;
