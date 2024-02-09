@@ -1,5 +1,7 @@
 <section>
-  <div class="flex relative lg:p-12 md:fixed top-0 p-4 z-[99] w-full justify-between flex-wrap">
+  <div
+    class="flex relative lg:p-12 md:fixed top-0 p-4 z-[99] w-full justify-between flex-wrap"
+  >
     <div class="flex flex-col text-2xl lg:text-3xl" id="top-left">
       <div class="flex">
         <button class="bg-black inline border" id="email"
@@ -31,32 +33,35 @@
 </section>
 <script>
   exec();
-  document.addEventListener("astro:after-swap", () => exec())
-  function exec(){
-  document
-    .querySelector("#discord")
-    .addEventListener("click", handleClickDiscord);
-  document.querySelector("#email").addEventListener("click", handleClickEmail);
-  function handleClickDiscord() {
-    const span = document.querySelector("#top-left .discord");
-    navigator.clipboard.writeText("Tnixc");
-    span.classList.remove("unseen");
-    span.classList.add("seen");
-    setTimeout(() => {
-      span.classList.remove("seen");
-      span.classList.add("unseen");
-    }, 2000);
+  document.addEventListener("astro:after-swap", () => exec());
+  function exec() {
+    document
+      .querySelector("#discord")
+      .addEventListener("click", handleClickDiscord);
+    document
+      .querySelector("#email")
+      .addEventListener("click", handleClickEmail);
+    function handleClickDiscord() {
+      const span = document.querySelector("#top-left .discord");
+      navigator.clipboard.writeText("Tnixc");
+      span.classList.remove("unseen");
+      span.classList.add("seen");
+      setTimeout(() => {
+        span.classList.remove("seen");
+        span.classList.add("unseen");
+      }, 2000);
+    }
+    function handleClickEmail() {
+      const span = document.querySelector("#top-left .email");
+      navigator.clipboard.writeText("tnixxc@gmail.com");
+      span.classList.remove("unseen");
+      span.classList.add("seen");
+      setTimeout(() => {
+        span.classList.remove("seen");
+        span.classList.add("unseen");
+      }, 2000);
+    }
   }
-  function handleClickEmail() {
-    const span = document.querySelector("#top-left .email");
-    navigator.clipboard.writeText("tnixxc@gmail.com");
-    span.classList.remove("unseen");
-    span.classList.add("seen");
-    setTimeout(() => {
-      span.classList.remove("seen");
-      span.classList.add("unseen");
-    }, 2000);
-  }}
 </script>
 <style>
   span {

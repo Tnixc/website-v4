@@ -30,7 +30,8 @@ export const projects: Project[] = [
   },
   {
     name: "nu-hist",
-    description: "A simple rust cli to read from nu shell's sqlite history and shows the most used commands",
+    description:
+      "A simple rust cli to read from nu shell's sqlite history and shows the most used commands",
     link: "https://github.com/Tnixc/nu-hist",
   },
   {

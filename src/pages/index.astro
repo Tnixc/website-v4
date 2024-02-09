@@ -6,7 +6,10 @@ import Badges from "@/components/landing/Badges.astro";
 
 <BaseLayout>
   <div id="top-center">
-    <a class="bg-black border text-3xl ml-auto mr-1 block w-fit" href="/projects/">Projects 🡒</a>
+    <a
+      class="bg-black border text-3xl ml-auto mr-1 block w-fit"
+      href="/projects/">Projects 🡒</a
+    >
   </div>
   <div
     class="flex flex-wrap justify-between pt-20 lg:pt-0 lg:px-20 w-screen items-center"
@@ -20,7 +23,7 @@ import Badges from "@/components/landing/Badges.astro";
   </div>
 </BaseLayout>
 <style>
-@media screen and (min-width: 780px){
+  @media screen and (min-width: 780px) {
     #top-center {
       z-index: 99;
       position: fixed;
@@ -29,11 +32,11 @@ import Badges from "@/components/landing/Badges.astro";
       transform: translateX(-50%) perspective(1000px) rotateX(30deg);
     }
   }
-  #top-center a{
+  #top-center a {
     padding: 1rem 2rem;
-    transition: all .2s;
+    transition: all 0.2s;
   }
-  #top-center:hover a{
-    opacity: .5;
+  #top-center:hover a {
+    opacity: 0.5;
   }
 </style>

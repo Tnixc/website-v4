@@ -17,12 +17,14 @@ function calculateValue(index: number, length: number) {
 
 <BaseLayout>
   <div id="top-center">
-    <a class="bg-black border text-3xl ml-auto mr-1 block w-fit" href="/">🡐 Back</a>
+    <a class="bg-black border text-3xl ml-auto mr-1 block w-fit" href="/"
+      >🡐 Back</a
+    >
   </div>
   <div
     class="flex flex-wrap justify-between pt-20 md:pt-0 md:px-20 w-screen items-center md:pb-40 p-8"
   >
-    <ul id="container" class="min-h-screen md:pt-60 flex flex-col gap-2 ">
+    <ul id="container" class="min-h-screen md:pt-60 flex flex-col gap-2">
       {
         projects.map((project, index) => (
           <li
@@ -59,7 +61,7 @@ function calculateValue(index: number, length: number) {
       opacity: 1;
     }
   }
-  @media screen and (min-width: 780px){
+  @media screen and (min-width: 780px) {
     #top-center {
       z-index: 99;
       position: fixed;
