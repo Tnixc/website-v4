@@ -29,6 +29,11 @@ export const projects: Project[] = [
     link: "https://github.com/Tnixc/dots",
   },
   {
+    name: "nu-hist",
+    description: "A simple rust cli to read from nu shell's sqlite history and shows the most used commands",
+    link: "https://github.com/Tnixc/nu-hist",
+  },
+  {
     name: "Other projects",
     description:
       "I have more projects on my github. You can check them out there. Theres 3 previous versions of this website, and another repo where I build some cool ui stuff",
