@@ -34,38 +34,47 @@ import Stats from "./Stats.astro";
   </div>
   <dialog
     id="more"
-    class="lg:p-10 p-4 rounded-xl bg-zinc-800 text-zinc-400 w-[60rem] max-w-[90vw]"
+    class="w-[60rem] max-w-[80vw] bg-zinc-900 border-teal-300 border-2 fixed"
   >
     <form method="dialog">
-      <h1 class="text-2xl pb-10 text-zinc-500">More about me</h1>
-      <p>
-        1. Thanks for opening this dialog!
-        <br />
-        <br />
-        <span class="text-white"
-          >I'm a 15 year old high school student from Hong Kong living in
-          Canada.</span
-        >
-        I enjoy video games, coding, reading books and webcomics, watching anime,
-        listening to lots of jpop, touhou songs, vocaloids and all that, and doing
-        2D and 3D art. I started webdev around 2022, but honestly time has been blur
-        since 2020 so I'm not sure. I also like trains and bikes(a huge fan of dutch
-        urban design), public transit, typography, and open source. I also like chilling
-        in IKEA and hiking :3
-        <br />
-        <br />
-
-        I also enjoy games like minecraft and a lot of rhythm games like osu!,
-        pjsk, and beat saber. I also like BG3, City Skylines 2, Cyberpunk, poly
-        bridge, ultrakill, besiege, and celeste.
-        <br />
-        <br />
-      </p>
+      <div class="flex w-full sticky top-0">
+        <div class="flex-grow">
+          <div class="w-full h-2 bg-teal-300"></div>
+          <div class="h-1"></div>
+          <div class="w-full h-2 bg-teal-300"></div>
+          <div class="h-1"></div>
+          <div class="w-full h-2 bg-teal-300"></div>
+        </div>
         <button
           id="close"
-          class="p-2 border-2 hover:scale-95 transition-all text-red-400"
+          class="block h-8 bg-teal-300 hover:scale-95 transition-all text-black px-4"
           >✖ Close dialog</button
         >
+      </div>
+      <div class="p-4">
+        <h1 class="text-2xl pb-10 text-purple-500" id="head">More about me</h1>
+        <p class="text-zinc-400">
+          1. Thanks for opening this dialog!
+          <br />
+          <span class="text-zinc-200"
+            >I'm a 15 year old high school student from Hong Kong living in
+            Canada.</span
+          >
+          I enjoy video games, coding, reading books and webcomics, watching anime,
+          listening to lots of jpop, vocaloids and some normal music as well.I like
+          doing 2D and 3D art, currently trying out animation . I started webdev
+          around 2022, but honestly time has been blur since 2020 so I'm not sure.
+          I also like trains and bikes(a huge fan of dutch urban design), public
+          transit, typography, and open source. I also like chilling in IKEA and
+          hiking.
+          <br />
+          <br />
+          I also enjoy games like minecraft and a lot of rhythm games like osu!,
+          pjsk, and beat saber. I also like BG3, City Skylines 2, Cyberpunk, poly
+          bridge, ultrakill, besiege, and celeste.
+          <br />
+        </p>
+      </div>
     </form>
   </dialog>
 </section>
@@ -146,10 +155,10 @@ import Stats from "./Stats.astro";
   typeAndCycleText();
   setInterval(() => {
     showUnderscore = !showUnderscore;
-    if (document.getElementById("underscore")){
+    if (document.getElementById("underscore")) {
       document.getElementById("underscore").style.visibility = showUnderscore
-      ? "visible"
-      : "hidden";
+        ? "visible"
+        : "hidden";
     }
   }, 500);
   setInterval(() => {
@@ -157,8 +166,32 @@ import Stats from "./Stats.astro";
   }, 100);
 </script>
 <style>
+  #head {
+    text-shadow: 0 0 5px #3c6ac4;
+  }
+  div.flex-grow > div.bg-teal-300 {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #65e8d544;
+      filter: blur(10px);
+      z-index: 1;
+    }
+  }
   dialog {
     animation: fade-up 0.5s ease;
+    box-shadow: 0 0 10px 5px #65e8d544;
+    overflow: scroll;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      outline: 5px solid #65e8d544;
+      z-index: -1;
+      filter: blur(10px);
+    }
   }
   @keyframes fade-up {
     from {
