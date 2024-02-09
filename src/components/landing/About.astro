@@ -6,7 +6,7 @@ import Stats from "./Stats.astro";
   <div class="lg:pl-20 lg:py-20 p-4 relative z-40">
     <div class="h-[20vh]"></div>
     <div class="max-w-[90vw] w-fit" id="mid-left">
-      <h2 id="title" class="text-4xl border border-zinc-800 w-min">Haiii</h2>
+      <h2 id="title" class="text-4xl border border-zinc-400 w-min">Haiii</h2>
       <h1 class="text-5xl">
         I'm <span
           class="text-transparent bg-clip-text bg-gradient-to-tr from-teal-400 via-purple-400 to-blue-500"
@@ -25,7 +25,7 @@ import Stats from "./Stats.astro";
       <div class="p-5">
         <button
           id="open"
-          class="p-3 bg-zinc-900 border-2 hover:scale-95 transition-all"
+          class="p-3 bg-zinc-950 border-2 hover:scale-95 transition-all"
           >⍈ More About Me ^_^</button
         >
       </div>
@@ -34,7 +34,7 @@ import Stats from "./Stats.astro";
   </div>
   <dialog
     id="more"
-    class="w-[60rem] max-w-[80vw] bg-zinc-900 border-teal-300 border-2 fixed"
+    class="w-[60rem] max-w-[80vw] bg-zinc-950 border-teal-300 border-2 fixed"
   >
     <form method="dialog">
       <div class="flex w-full sticky top-0">
@@ -47,7 +47,7 @@ import Stats from "./Stats.astro";
         </div>
         <button
           id="close"
-          class="block h-8 bg-teal-300 hover:scale-95 transition-all text-black px-4"
+          class="block h-8 bg-teal-300 hover:bg-gradient-to-t hover:from-teal-400 hover:to-teal-300 transition-all text-black px-4"
           >✖ Close dialog</button
         >
       </div>
@@ -78,92 +78,96 @@ import Stats from "./Stats.astro";
     </form>
   </dialog>
 </section>
-<script>
+<script is:inline>
   document.getElementById("open").addEventListener("click", () => {
-    //@ts-expect-error
     document.getElementById("more").showModal();
   });
-  document.getElementById("close").addEventListener("close", () => {
-    //@ts-expect-error
+  document.getElementById("close").addEventListener("click", () => {
     document.getElementById("more").close();
   });
-  const texts: string[] = [
-    "webdev",
-    "anime enjoyer",
-    "webnovel reader",
-    "aspiring 2D Artist",
-    "minecraft enjoyer",
-    "rhythm game player",
-    "aspiring 3D artist",
-    "highschool student",
-    "webtoon reader",
-  ];
-  let currentIndex = 0;
-  let typedText = "";
-  let showUnderscore = false;
-  const textElement = document.getElementById("text-rpd-text");
+</script>
+<script>
+  exec();
+  document.addEventListener("astro:after-swap", () => exec());
+  function exec() {
+    const texts: string[] = [
+      "webdev",
+      "anime enjoyer",
+      "webnovel reader",
+      "aspiring 2D Artist",
+      "minecraft enjoyer",
+      "rhythm game player",
+      "aspiring 3D artist",
+      "highschool student",
+      "webtoon reader",
+    ];
+    let currentIndex = 0;
+    let typedText = "";
+    let showUnderscore = false;
+    const textElement = document.getElementById("text-rpd-text");
 
-  const typeAndCycleText = async () => {
-    while (true) {
-      await typeText(texts[currentIndex]);
-      await sleep(2000);
-      await backspace();
-      currentIndex = (currentIndex + 1) % texts.length;
-    }
-  };
+    const typeAndCycleText = async () => {
+      while (true) {
+        await typeText(texts[currentIndex]);
+        await sleep(2000);
+        await backspace();
+        currentIndex = (currentIndex + 1) % texts.length;
+      }
+    };
 
-  const typeText = (text: string) => {
-    return new Promise<void>((resolve) => {
-      let charIndex = 0;
-      const delay = 100;
+    const typeText = (text: string) => {
+      return new Promise<void>((resolve) => {
+        let charIndex = 0;
+        const delay = 100;
 
-      const typingInterval = setInterval(() => {
-        if (charIndex < text.length) {
-          typedText += text[charIndex];
-          charIndex++;
-        } else {
-          clearInterval(typingInterval);
-          resolve();
-        }
-      }, delay);
-    });
-  };
+        const typingInterval = setInterval(() => {
+          if (charIndex < text.length) {
+            typedText += text[charIndex];
+            charIndex++;
+          } else {
+            clearInterval(typingInterval);
+            resolve();
+          }
+        }, delay);
+      });
+    };
 
-  const backspace = () => {
-    return new Promise<void>((resolve) => {
-      const delay = 50;
-      const textToType = typedText;
-      let charIndex = textToType.length;
+    const backspace = () => {
+      return new Promise<void>((resolve) => {
+        const delay = 50;
+        const textToType = typedText;
+        let charIndex = textToType.length;
 
-      const backspaceInterval = setInterval(() => {
-        if (charIndex > 0) {
-          typedText = textToType.substring(0, charIndex - 1);
-          charIndex--;
-        } else {
-          clearInterval(backspaceInterval);
-          resolve();
-        }
-      }, delay);
-    });
-  };
+        const backspaceInterval = setInterval(() => {
+          if (charIndex > 0) {
+            typedText = textToType.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            clearInterval(backspaceInterval);
+            resolve();
+          }
+        }, delay);
+      });
+    };
 
-  const sleep = (ms: number) => {
-    return new Promise<void>((resolve) => {
-      setTimeout(resolve, ms);
-    });
-  };
-  typeAndCycleText();
-  setInterval(() => {
-    showUnderscore = !showUnderscore;
-    if (document.getElementById("underscore")) {
-      document.getElementById("underscore").style.visibility = showUnderscore
-        ? "visible"
-        : "hidden";
-    }
-  }, 500);
-  setInterval(() => {
-    textElement.innerText = typedText;
-  }, 100);
+    const sleep = (ms: number) => {
+      return new Promise<void>((resolve) => {
+        setTimeout(resolve, ms);
+      });
+    };
+    typeAndCycleText();
+    setInterval(() => {
+      showUnderscore = !showUnderscore;
+      if (document.getElementById("underscore")) {
+        document.getElementById("underscore").style.visibility = showUnderscore
+          ? "visible"
+          : "hidden";
+      }
+    }, 500);
+    setInterval(() => {
+      textElement.innerText = typedText;
+    }, 100);
+  }
 </script>
 <style>
   #head {
